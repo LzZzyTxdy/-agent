@@ -19,6 +19,7 @@ Thumbs.db
 
 # Local reference material and generated runtime data
 *.pdf
+!20260813 2026年复旦大学研究生学习和申请学位基本文件选编-洁版final.pdf
 data/*
 !data/.gitkeep
 runs/*

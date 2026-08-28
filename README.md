@@ -11,6 +11,31 @@
 > [!IMPORTANT]
 > 本项目仅用于浏览器自动化、LLM Agent 和 RAG 技术研究，以及获得明确授权的测试场景。使用者应遵守所在学校、平台或组织的规则，不得将其用于未经授权的考试、规避考核或其他违反学术诚信的行为。
 
+## 最快开始
+
+克隆仓库后，在 Windows PowerShell 中执行：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\setup.ps1
+```
+
+脚本会创建 `.venv`、安装 Python 依赖和 Playwright Chromium，并在缺少 `.env` 时从 `.env.example` 创建一份。随后只需在 `.env` 中填写自己的目标网页和 LLM 配置：
+
+```env
+TARGET_URL=https://你的测试网页
+LLM_BASE_URL=https://你的兼容接口地址
+LLM_API_KEY=你的API密钥
+LLM_MODEL=你的模型名称
+```
+
+保存后运行：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\run.ps1
+```
+
+Linux/macOS 用户可以依次执行 `./setup.sh`、编辑 `.env`、`./run.sh`。安装脚本不会覆盖已有 `.env`，启动脚本也不会输出其中的密钥。
+
 ## 环境要求
 
 - Python 3.10+
@@ -133,7 +158,9 @@ python main.py
 
 ## 本地 PDF 与联网检索
 
-项目根目录中的 PDF 会自动建立页级文本索引。每道题求解前先检索本地 PDF；本地相关性不足时，`WEB_SEARCH_MODE=auto` 会使用有超时限制的公共网页搜索作为补充。PDF 文件发生变化时索引会自动重建。
+仓库已包含项目当前使用的学习参考 PDF。首次运行时会自动提取文字并在本地建立页级 BM25 索引；该索引不是向量数据库，而是可以随时从 PDF 重建的派生缓存，因此不会提交到 GitHub。每道题求解前先检索本地 PDF；本地相关性不足时，`WEB_SEARCH_MODE=auto` 会使用有超时限制的公共网页搜索作为补充。PDF 文件发生变化时索引会自动重建。
+
+参考 PDF 的权利归原权利人所有，不适用本项目的 MIT 软件许可证。详情见 [REFERENCE_MATERIALS.md](REFERENCE_MATERIALS.md)。如需使用其他资料，可将 PDF 放入项目根目录；默认 `REFERENCE_PDF_GLOB=*.pdf` 会同时检索它们。
 
 ```env
 ENABLE_LOCAL_RETRIEVAL=true

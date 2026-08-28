@@ -7,3 +7,6 @@
 *.ini text eol=lf
 *.txt text eol=lf
 *.example text eol=lf
+*.ps1 text eol=crlf
+*.sh text eol=lf
+*.pdf binary
