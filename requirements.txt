@@ -1,0 +1,8 @@
+playwright>=1.45,<2
+openai>=1.40,<3
+pydantic>=2.7,<3
+pydantic-settings>=2.3,<3
+python-dotenv>=1.0,<2
+pypdf>=5.0,<7
+ddgs>=9.0,<10
+pytest>=8.2,<10
