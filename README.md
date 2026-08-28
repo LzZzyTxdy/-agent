@@ -19,7 +19,7 @@
 powershell -ExecutionPolicy Bypass -File .\setup.ps1
 ```
 
-脚本会创建 `.venv`、安装 Python 依赖和 Playwright Chromium，并在缺少 `.env` 时从 `.env.example` 创建一份。随后只需在 `.env` 中填写自己的目标网页和 LLM 配置：
+脚本会创建 `.venv`、安装 Python 依赖，并在缺少 `.env` 时从 `.env.example` 创建一份。检测到系统 Chrome 时会直接使用；只有没有可用 Chrome/Chromium 时才下载 Playwright Chromium。随后只需在 `.env` 中填写自己的目标网页和 LLM 配置：
 
 ```env
 TARGET_URL=https://你的测试网页
