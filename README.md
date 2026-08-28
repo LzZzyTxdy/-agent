@@ -1,4 +1,8 @@
-# 网页自动答题 Agent
+# 复旦大学2026级研究生入学教育测试自动答题 Agent
+<img width="956" height="504" alt="image" src="https://github.com/user-attachments/assets/81b9e5e4-38ad-4da6-a1c0-1df75a0a6625" />
+
+已在复旦大学2026级研究生入学教育测试中连续多次获得90+成绩。
+
 
 这是一个面向固定测试网页的 DOM 驱动答题 Agent。Playwright 负责确定性页面读取与点击，LLM 只负责语义判断，`DecisionPolicy` 在两者之间校验索引和置信度。单选使用整数索引，多选使用整数索引数组；程序永远不会点击“提交试卷/交卷”等最终提交按钮。
 
